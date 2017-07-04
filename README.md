@@ -1,4 +1,4 @@
-# vue+elementUI
+# Vue+ElementUI
 
 > A Vue.js project
 
