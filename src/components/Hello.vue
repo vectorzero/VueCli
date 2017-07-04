@@ -6,6 +6,7 @@
     <el-button type="primary" v-on:click='change'>主要按钮</el-button>
     <p>{{inputVal}}</p>
     <div class='inputWrap'><el-input v-model="inputVal"></el-input></div>
+    <p>{{basic}}</p>
   </div>
 </template>
 
@@ -17,13 +18,26 @@ export default {
       msg: 'hello vue',
       time: '页面加载于'+new Date(),
       good: 'OK',
-      inputVal:'input Value'
+      inputVal:'input Value',
+      basic: ''
     }
   },
   methods:{
+    BasicData(){
+      this.$http('http://localhost:8080/static/data.json')
+        .then((response)=>{
+            this.basic = response.data.goods[0].name
+        })
+        .catch((response)=>{
+            console.log(response)
+        })
+    },
     change(){
       this.good = 'hello world'
     }
+  },
+  mounted(){
+    this.BasicData()
   }
 }
 </script>

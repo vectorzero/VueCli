@@ -1,0 +1,29 @@
+{
+    "goods":[
+        {
+            "name": "one",
+            "type": "food",
+            "num": 1
+        },
+        {
+            "name": "two",
+            "type": "fruit",
+            "num": 2
+        },
+        {
+            "name": "three",
+            "type": "food",
+            "num": 3
+        },
+        {
+            "name": "four",
+            "type": "food",
+            "num": 4
+        },
+        {
+            "name": "five",
+            "type": "fruit",
+            "num": 5
+        }
+    ]
+}
