@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p v-bind:title="time">时间</p>
+    <h1>{{msg}}</h1>
+    <p>{{time}}</p>
     <p>{{good}}</p>
     <el-button type="primary" v-on:click='change'>主要按钮</el-button>
     <p>{{inputVal}}</p>
-    <input type='text' v-model="inputVal">
+    <div class='inputWrap'><el-input v-model="inputVal"></el-input></div>
   </div>
 </template>
 
@@ -45,5 +45,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+.inputWrap {
+  display: inline-block;
+  width: 200px;
 }
 </style>
