@@ -7,6 +7,6 @@
 
 <<script>
 export default {
-  name:'indexPage'
+  name:'IndexPage'
 }
 </script>
