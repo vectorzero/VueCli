@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <p><i class="fa fa-fw fa-weibo"></i></p>
-    <router-link to="/">Go to Hello</router-link>
-    <router-link to="/hi">Go to Hi</router-link>
+    <div class='nav'>
+        <router-link to="/login">登录</router-link>
+        <router-link to="/">首页</router-link>
+        <router-link to="/hello">Hello</router-link>
+        <router-link to="/hi">Hi</router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -14,13 +17,21 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='less'>
+    #app {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      left: 50%;
+      top: 50%;
+      margin-left: -250px;
+      margin-top: -350px;
+      text-align: center;
+    }
+    .nav {
+      a {
+        text-decoration: none;
+        margin: auto 20px;
+      }
+    }
 </style>
