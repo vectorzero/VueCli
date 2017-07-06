@@ -10,7 +10,10 @@
     <p v-if="Math.random()>0.5">Yes</p>
     <p v-else>No</p>
     <p>hello{{ $store.state.count }}</p>
-    <el-button @click="increment">increment</el-button>
+    <el-button @click="increment">+1</el-button>
+    <el-button @click="add">+10</el-button>
+    <el-button @click="incrementAsync">异步+1</el-button>
+    <el-button @click="incrementAsyncWithVal">异步+5</el-button>
   </div>
 </template>
 
@@ -44,6 +47,15 @@ export default {
     },
     increment(){
       this.$store.commit('increment')
+    },
+    add(){
+      this.$store.commit('add',10)
+    },
+    incrementAsync(){
+      this.$store.dispatch('incrementAsync')
+    },
+    incrementAsyncWithVal(){
+      this.$store.dispatch('incrementAsyncWithVal',5)
     }
   },
   mounted(){
