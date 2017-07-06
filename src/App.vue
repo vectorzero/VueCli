@@ -2,10 +2,12 @@
   <div id="app">
     <img src="./assets/logo.png">
     <div class='nav'>
+        <el-button @click='prePage'>后退</el-button>
         <router-link to="/login">登录</router-link>
         <router-link to="/">首页</router-link>
         <router-link to="/hello">Hello</router-link>
         <router-link to="/hi">Hi</router-link>
+        <el-button @click='nextPage'>前进</el-button>
     </div>
     <router-view></router-view>
   </div>
@@ -13,7 +15,15 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    prePage(){
+      this.$router.go(-1);
+    },
+    nextPage(){
+      this.$router.go(1);
+    }
+  }
 }
 </script>
 
