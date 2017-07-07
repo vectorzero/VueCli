@@ -7,6 +7,7 @@
         <router-link to="/">首页</router-link>
         <router-link to="/hello">Hello</router-link>
         <router-link to="/hi">Hi</router-link>
+        <router-link to="/vux">Vux</router-link>
         <el-button @click='nextPage'>前进</el-button>
     </div>
     <router-view></router-view>
@@ -28,6 +29,7 @@ export default {
 </script>
 
 <style lang='less'>
+@import '~vux/src/styles/reset.less';
     #app {
       position: fixed;
       width: 500px;
