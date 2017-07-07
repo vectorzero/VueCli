@@ -1,12 +1,17 @@
-<<template>
-    <div>
-        <h1>首页</h1>
-    </div>
+<template>
+  <div>
+    <h1>首页</h1>
+    <ToDo></ToDo>
+  </div>
 </template>
 
 
-<<script>
+<script>
+import ToDo from './ToDo'
 export default {
-  name:'IndexPage'
+  name:'IndexPage',
+  components:{
+    'ToDo':ToDo
+  }
 }
 </script>

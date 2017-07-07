@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <group>
-            <cell title="title" value="value"></cell>
-        </group>
-    </div>
+  <div>
+    <group>
+      <cell title="title" value="value"></cell>
+    </group>
+  </div>
 </template>
 
 <script>
