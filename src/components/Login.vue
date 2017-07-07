@@ -1,4 +1,4 @@
-<<template>
+<template>
     <form class='loginBox' novalidate autocomplete="off">
         <el-input v-model='username' placeholder='请输入账号'></el-input>
         <el-input type='password' v-model='password' placeholder='请输入密码'></el-input>
@@ -6,7 +6,7 @@
     </form>
 </template>
 
-<<script>
+<script>
 export default {
     name: 'login',
     data() {
@@ -42,7 +42,7 @@ export default {
         }
     },
     mounted(){
-        
+
     }
 }
 </script>
