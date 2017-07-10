@@ -6,11 +6,14 @@
     <p>{{fullName}}</p>
     <el-button @click="change">change</el-button>
     <One></One>
+    <el-button @click="count +=1">add</el-button>
+    <p>这个按钮被点击{{count}}次</p>
   </div>
 </template>
 
 <script>
 import One from './One'
+import ElButton from "../../node_modules/element-ui/packages/button/src/button";
 export default {
   name: 'hi',
   data () {
@@ -18,10 +21,12 @@ export default {
       msg: 'hi vue',
       id: 5,
       firstName: 'Hello',
-      lastName: 'World'
+      lastName: 'World',
+      count: 0
     }
   },
   components: {
+    ElButton,
     'One': One
   },
   methods: {

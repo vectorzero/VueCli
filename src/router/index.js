@@ -5,6 +5,7 @@ import Hello from '@/components/Hello'
 import Hi from '@/components/Hi'
 import Login from '@/components/Login'
 import Vux from '@/components/Vux'
+import DataTable from '@/components/DataTable'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/vux',
       name: 'Vux',
       component: Vux
+    },
+    {
+      path: '/datatable',
+      name: 'DataTable',
+      component: DataTable
     }
   ]
 })
