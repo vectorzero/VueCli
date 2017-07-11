@@ -13,7 +13,6 @@
 
 <script>
 import One from './One'
-import ElButton from "../../node_modules/element-ui/packages/button/src/button";
 export default {
   name: 'hi',
   data () {
@@ -26,7 +25,6 @@ export default {
     }
   },
   components: {
-    ElButton,
     'One': One
   },
   methods: {
