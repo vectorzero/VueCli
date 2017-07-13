@@ -14,8 +14,8 @@
     <v_header></v_header>
     <v_nav></v_nav>
     <div class="ContentDiv">
-      <v_footer></v_footer>
       <router-view></router-view>
+      <!--<v_footer></v_footer>-->
     </div>
   </div>
 </template>
@@ -53,6 +53,7 @@
   #app {
     position: relative;
     height: 100%;
+    background: #eee;
   }
   .nav {
     margin: 20px auto;

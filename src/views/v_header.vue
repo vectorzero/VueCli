@@ -5,14 +5,12 @@
     </div>
     <div class="HeaderRight">
       <el-menu theme="dark" class="el-menu-demo" mode="horizontal">
-        <el-menu-item index="1">处理中心</el-menu-item>
+        <el-menu-item index="1">{{userName}}</el-menu-item>
         <el-submenu index="2">
-          <template slot="title">我的工作台</template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
+          <template slot="title">个人中心</template>
+          <el-menu-item index="2-1">修改密码</el-menu-item>
+          <el-menu-item index="2-2">登出</el-menu-item>
         </el-submenu>
-        <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
       </el-menu>
     </div>
   </div>
@@ -22,7 +20,7 @@
     name: '',
     data () {
       return {
-        userName:'hello world'
+        userName:'helloworld@123.com'
       }
     }
   }
@@ -44,13 +42,18 @@
     height: 80px;
     width: e("calc(100% - 200px)");
     background-color: #324157;
+    .el-menu {
+      position: absolute;
+      right: 50px;
+    }
   }
   .logo {
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     background: url("../assets/logo.png") no-repeat;
     background-size: 100% 100%;
-    margin-left: 50px;
+    margin-left: 70px;
+    margin-top: 20px;
   }
   .user {
     position: absolute;
