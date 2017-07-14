@@ -1,13 +1,13 @@
 <template>
   <div class="NavDiv">
-    <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark">
-      <el-menu-item index="1"><i class="el-icon-menu"></i>仪表盘</el-menu-item>
-      <el-menu-item index="2"><i class="el-icon-setting"></i>用户管理</el-menu-item>
+    <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :router="true">
+      <el-menu-item index="/"><i class="el-icon-menu"></i>仪表盘</el-menu-item>
+      <el-menu-item index="/usermanage"><i class="el-icon-setting"></i>用户管理</el-menu-item>
       <el-submenu index="3">
         <template slot="title"><i class="el-icon-message"></i>内容管理</template>
         <el-menu-item-group>
           <template slot="title">分组一</template>
-          <el-menu-item index="3-1">选项1</el-menu-item>
+          <el-menu-item index="/datatable">选项1</el-menu-item>
           <el-menu-item index="3-2">选项2</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="分组2">

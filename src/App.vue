@@ -27,9 +27,9 @@
   export default {
     name: 'app',
     components:{
-        'v_footer':v_footer,
-        'v_header':v_header,
-        'v_nav':v_nav
+      'v_footer':v_footer,
+      'v_header':v_header,
+      'v_nav':v_nav
     },
     methods: {
       prePage(){
@@ -69,5 +69,6 @@
     position: absolute;
     left: 200px;
     top: 100px;
+    padding: 50px;
   }
 </style>

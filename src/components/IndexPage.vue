@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="CountWrap">
-      <div>用户量</div>
-      <div>访问流量</div>
-      <div>文章数</div>
-      <div>评论数</div>
+      <div>用户量：{{users}}</div>
+      <div>访问流量：{{flows}}</div>
+      <div>文章数：{{articles}}</div>
+      <div>评论数：{{comments}}</div>
     </div>
     <ToDo></ToDo>
   </div>
@@ -15,6 +15,14 @@
 import ToDo from './ToDo'
 export default {
   name:'IndexPage',
+  data(){
+      return{
+        users: 0,
+        flows: 0,
+        articles: 0,
+        comments: 0,
+      }
+  },
   components:{
     'ToDo':ToDo
   }
@@ -23,7 +31,7 @@ export default {
 
 <style lang="less" scoped>
   .CountWrap {
-    width: 800px;
+    width: 1620px;
     display: flex;
     div {
       display: flex;
@@ -33,8 +41,9 @@ export default {
       height: 100px;
       margin: auto 50px;
       border: 1px solid #fff;
+      border-radius: 5px;
       background: #fff;
-      box-shadow: 2px 2px #ccc;
+      box-shadow: 4px 4px 4px #ccc;
     }
   }
 </style>

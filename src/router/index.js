@@ -6,6 +6,7 @@ import Hi from '@/components/Hi'
 import Login from '@/components/Login'
 import Vux from '@/components/Vux'
 import DataTable from '@/components/DataTable'
+import UserManage from '@/components/UserManage'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/datatable',
       name: 'DataTable',
       component: DataTable
+    },
+    {
+      path: '/usermanage',
+      name: 'UserManage',
+      component: UserManage
     }
   ]
 })
