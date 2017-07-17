@@ -70,5 +70,6 @@
     left: 200px;
     top: 100px;
     padding: 50px;
+    overflow: auto;
   }
 </style>
