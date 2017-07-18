@@ -1,9 +1,9 @@
 <template>
-  <div class="HeaderDiv">
-    <div class="HeaderLeft">
+  <div class="headerDiv">
+    <div class="headerLeft">
       <div class="logo"></div>
     </div>
-    <div class="HeaderRight">
+    <div class="headerRight">
       <el-menu theme="dark" class="el-menu-demo" mode="horizontal">
         <el-menu-item index="1">{{userName}}</el-menu-item>
         <el-submenu index="2">
@@ -26,15 +26,15 @@
   }
 </script>
 <style scoped lang="less">
-  .HeaderDiv {
+  .headerDiv {
     display: flex;
   }
-  .HeaderLeft {
+  .headerLeft {
     height: 100px;
     width: 200px;
     background-color: #324157;
   }
-  .HeaderRight {
+  .headerRight {
     position: relative;
     display: flex;
     align-items: center;

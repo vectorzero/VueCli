@@ -1,5 +1,5 @@
 <template>
-  <div class="NavDiv">
+  <div class="navDiv">
     <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :router="true">
       <el-menu-item index="/"><i class="fa fa-tachometer fa-lg"></i>仪表盘</el-menu-item>
       <el-menu-item index="/usermanage"><i class="fa fa-user fa-lg"></i>用户管理</el-menu-item>
@@ -30,7 +30,7 @@
   }
 </script>
 <style scoped lang="less">
-  .NavDiv {
+  .navDiv {
     width: 200px;
     height: e("calc(100% - 100px)");
     background: #324157;

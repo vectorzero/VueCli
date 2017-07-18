@@ -19,7 +19,7 @@
       </el-tab-pane>
       <el-tab-pane label="主界面">
         <div class="mobileWrap fullColor">
-          <div>
+          <div class="menu">
             <a href="#">客户下单</a>
             <a href="#">订单查询</a>
             <a href="#">配送定位</a>
@@ -45,6 +45,15 @@
             <search></search>
             <x-button>排序</x-button>
           </div>
+          <div class="listDiv">
+            <ul>
+              <li>hello world</li>
+              <li>hello world</li>
+              <li>hello world</li>
+              <li>hello world</li>
+              <li>hello world</li>
+            </ul>
+          </div>
         </div>
       </el-tab-pane>
       <el-tab-pane label="配送定位">
@@ -58,7 +67,7 @@
 
 <script>
 import iphone from './iphone'
-import { Group, Cell, XInput, XButton, Selector, Datetime, XSwitch, XTextarea, Search} from 'vux'
+import { Group, Cell, XInput, XButton, Selector, Datetime, XSwitch, XTextarea, Search, XDialog} from 'vux'
 export default {
   name:'vux',
   data() {
@@ -83,6 +92,7 @@ export default {
     XSwitch,
     XTextarea,
     Search,
+    XDialog,
     iphone
   },
   methods: {
@@ -94,6 +104,7 @@ export default {
 </script>
 
 <style scoped lang="less">
+  @import '~vux/src/styles/close';
   .mobileWrap {
     width: 370.8px;
     height: 600px;
@@ -117,6 +128,14 @@ export default {
       }
     }
   }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    a {
+      display: inline-block;
+      margin: 20px auto;
+    }
+  }
   .searchDiv {
     display: flex;
     button {
@@ -124,6 +143,12 @@ export default {
     }
     div {
       flex: 6
+    }
+  }
+  .listDiv {
+    margin: 50px auto;
+    li {
+      list-style: none;
     }
   }
 

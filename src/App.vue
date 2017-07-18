@@ -13,7 +13,7 @@
     <!--</div>-->
     <v_header></v_header>
     <v_nav></v_nav>
-    <div class="ContentDiv">
+    <div class="contentDiv">
       <router-view></router-view>
       <!--<v_footer></v_footer>-->
     </div>
@@ -65,7 +65,7 @@
   .cell {
     text-align: center;
   }
-  .ContentDiv {
+  .contentDiv {
     position: absolute;
     left: 200px;
     top: 100px;

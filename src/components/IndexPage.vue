@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="CountWrap">
+    <div class="countWrap">
       <div>用户量：{{users}}</div>
       <div>访问流量：{{flows}}</div>
       <div>文章数：{{articles}}</div>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .CountWrap {
+  .countWrap {
     width: 1620px;
     display: flex;
     div {

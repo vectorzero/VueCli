@@ -19,8 +19,8 @@
         <el-table-column label="创建日期" prop="date"></el-table-column>
         <el-table-column label="操作" width="200">
           <template scope="scope">
-            <el-button size="small">编辑</el-button>
-            <el-button size="small" type="danger">删除</el-button>
+            <el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+            <el-button size="small" type="danger" @click.native.prevent="deleteRow(scope.$index, tableData)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -32,6 +32,24 @@
         :total="1000">
       </el-pagination>
     </div>
+    <el-dialog
+      title="提示"
+      @open="open()"
+      :visible.sync="dialogVisible"
+      size="tiny"
+      :modal=false
+      :before-close="handleClose">
+      <div class="editDiv">
+        <p>序号：{{tableIndex}}</p>
+        <p><span>日期：</span><el-input v-model="detailData.date"></el-input></p>
+        <p><span>姓名：</span><el-input v-model="detailData.name"></el-input></p>
+        <p><span>地址：</span><el-input v-model="detailData.address"></el-input></p>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -39,6 +57,9 @@
     name: '',
     data () {
       return {
+        dialogVisible: false,
+        tableIndex: 0,
+        detailData: {},
         tableData:[]
       }
     },
@@ -54,6 +75,24 @@
           .catch((response)=>{
             console.log(response)
           })
+      },
+      deleteRow(index, rows) {
+        rows.splice(index, 1);
+      },
+      handleEdit(index, rows) {
+        this.dialogVisible = true;
+        this.tableIndex = index;
+        this.detailData = rows;
+      },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      },
+      open() {
+        //console.log('hello')
       }
     },
     mounted(){
