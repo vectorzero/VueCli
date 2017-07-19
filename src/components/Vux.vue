@@ -57,8 +57,10 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="配送定位">
-        <div class="mobileWrap">
-          配送定位
+        <div class="mobileWrap mapDiv">
+          <el-amap vid="amapDemo" :plugin="plugin">
+            <!--<el-amap-marker v-for="marker in markers" :position="marker.position" :key="marker.id"></el-amap-marker>-->
+          </el-amap>
         </div>
       </el-tab-pane>
     </el-tabs>
@@ -79,7 +81,17 @@ export default {
       listValue: '',
       list: [{key: 'gd', value: '广东'}, {key: 'gx', value: '广西'}],
       dateValue: '',
-      switchValue: false
+      switchValue: false,
+      markers: [],
+      plugin: [{
+        pName: 'MapType',
+        defaultType: 0,
+        events: {
+          init(instance) {
+            console.log(instance);
+          }
+        }
+      }]
     }
   },
   components: {
@@ -99,6 +111,26 @@ export default {
     change (value) {
       console.log('change', value)
     }
+  },
+  mounted(){
+    // 姑且N为2
+    // 为地图添加两个人
+//    this.markers = [
+//      {
+//        position: [121.5273285, 31.21515044]
+//      },
+//      {
+//        position: [1200.5273286, 310.21515045]
+//      }
+//    ];
+    // 模拟实时更新位置
+    // 开启一个1s的轮训，每个人的经纬度都自增0.00001
+//    const step = 0.001;
+//    setInterval(() => {
+//      this.markers.forEach((marker) => {
+//        marker.position = [marker.position[0] + step, marker.position[1] + step];
+//      });
+//    }, 1000);
   }
 }
 </script>
@@ -149,6 +181,12 @@ export default {
     margin: 50px auto;
     li {
       list-style: none;
+    }
+  }
+  .mapDiv {
+    div {
+      height: 100%;
+      width: 100%;
     }
   }
 
