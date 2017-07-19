@@ -5,14 +5,24 @@
     <p>{{resMsg}}</p>
     <p>{{fullName}}</p>
     <el-button @click="change">change</el-button>
-    <One></One>
-    <el-button @click="count +=1">add</el-button>
-    <p>这个按钮被点击{{count}}次</p>
+    <p>total:{{total}}</p>
+    <One v-on:hello="incrementTotal"></One>
+    <One v-on:hello="incrementTotal"></One>
+    <div class="parent">
+      <Two>
+        <template scope="props">
+          <span>hello from parent</span>
+          <span>{{ props.text }}</span>
+        </template>
+      </Two>
+    </div>
   </div>
 </template>
 
 <script>
 import One from './One'
+import Two from './Two'
+
 export default {
   name: 'hi',
   data () {
@@ -21,16 +31,20 @@ export default {
       id: 5,
       firstName: 'Hello',
       lastName: 'World',
-      count: 0
+      total: 0
     }
   },
   components: {
-    'One': One
+    'One': One,
+    'Two': Two
   },
   methods: {
     change(){
       this.msg ='good bye hi';
       this.fullName = 'Vector Zero'
+    },
+    incrementTotal(){
+      this.total += 1;
     }
   },
   //计算属性

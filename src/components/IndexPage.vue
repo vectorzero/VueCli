@@ -6,10 +6,11 @@
       <div>文章数：{{articles}}</div>
       <div>评论数：{{comments}}</div>
     </div>
-    <ToDo></ToDo>
+    <div class="uploadDiv">
+      <ToDo></ToDo>
+    </div>
   </div>
 </template>
-
 
 <script>
 import ToDo from './ToDo'
@@ -45,5 +46,10 @@ export default {
       background: #fff;
       box-shadow: 4px 4px 4px #ccc;
     }
+  }
+  .uploadDiv {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
   }
 </style>
