@@ -13,6 +13,7 @@
     <!--</div>-->
     <v_header></v_header>
     <v_nav></v_nav>
+    <v_weather></v_weather>
     <div class="contentDiv">
       <router-view></router-view>
       <!--<v_footer></v_footer>-->
@@ -21,13 +22,13 @@
 </template>
 
 <script>
-  import v_footer from './views/v_footer'
+  import v_weather from './views/v_weather'
   import v_header from './views/v_header'
   import v_nav from './views/v_nav'
   export default {
     name: 'app',
     components:{
-      'v_footer':v_footer,
+      'v_weather':v_weather,
       'v_header':v_header,
       'v_nav':v_nav
     },
