@@ -35,7 +35,21 @@ module.exports = {
         pathRewrite: {
           '^/api': ''
         }
-      }
+      },
+      '/list': {
+        target: 'http://music.163.com/api/playlist',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/list': ''
+        }
+      },
+      '/pic': {
+        target: 'http://gank.io/api/data/%E7%A6%8F%E5%88%A9',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/pic': ''
+        }
+      },
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
