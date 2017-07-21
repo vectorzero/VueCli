@@ -13,8 +13,7 @@
         <h4>作者：{{ author }}</h4>
         <p v-html="article"></p>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          <el-button @click="dialogVisible = false">关  闭</el-button>
         </span>
       </el-dialog>
     </div>
@@ -169,7 +168,7 @@ export default {
   }
   .showWrap {
     width: 1520px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     margin-left: 50px;
     border: 1px solid #fff;
     border-radius: 5px;
@@ -184,6 +183,7 @@ export default {
   }
   .showWrap {
     table {
+      width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
       margin: 0 auto;
@@ -196,11 +196,15 @@ export default {
       }
       th {
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 13px;
         letter-spacing: 1px;
       }
       td {
         border: 1px solid #ddd;
+      }
+      p {
+        font-size: 12px;
+        font-weight: bold;
       }
     }
   }
