@@ -1,5 +1,24 @@
 <template>
   <div>
+    <div class="articleDiv">
+      <h3>Article</h3>
+      <h4>{{ title }} --- {{ author }}</h4>
+      <div @click="dialogVisible = true">{{ digest }}...</div>
+      <el-button type="primary" @click="changeArticle">换一篇</el-button>
+    </div>
+    <div class="article">
+      <el-dialog
+        :title="title"
+        :visible.sync="dialogVisible">
+        <h4>作者：{{ author }}</h4>
+        <p v-html="article"></p>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
+    </div>
+
     <div class="countWrap">
       <div @click="showMovie()" :class="{activeDiv:isActiveI}">
         <h3>Movie</h3>
@@ -31,12 +50,17 @@ export default {
   name:'IndexPage',
   data(){
     return{
+      author: '',
+      digest: '',
+      title: '',
+      article: '',
       Movie: true,
       Music: false,
       Picture: false,
       isActiveI: true,
       isActiveII: false,
       isActiveIII: false,
+      dialogVisible: false
     }
   },
   components:{
@@ -69,12 +93,60 @@ export default {
       this.isActiveII = false;
       this.isActiveI = false;
       this.isActiveIII = true;
+    },
+    getArticle() {
+      let _this = this;
+      this.$http.get('/article/random?dev=1')
+        .then(function(res){
+          _this.article = res.data.data.content;
+          _this.title = res.data.data.title;
+          _this.author = res.data.data.author;
+          _this.digest = res.data.data.digest;
+        })
+    },
+    changeArticle() {
+      this.getArticle();
     }
+  },
+  mounted() {
+    this.getArticle();
   }
 }
 </script>
 
 <style lang="less">
+  .articleDiv {
+    position: relative;
+    border: 1px solid #fff;
+    background: #fff;
+    box-shadow: 4px 4px 4px #ccc;
+    width: 1520px;
+    height: 120px;
+    margin-left: 50px;
+    padding: 10px 20px;
+    overflow: auto;
+    text-align: center;
+    div {
+      cursor: pointer;
+    }
+    button {
+      position: absolute;
+      bottom: 10px;
+      right: 50px;
+      z-index: 555;
+    }
+  }
+  .article {
+    text-align: center;
+    h4 {
+      margin-bottom: 5px;
+    }
+    p{
+      text-align: left;
+      text-indent: 2em;
+      line-height: 2.5;
+    }
+  }
   .countWrap {
     width: 1620px;
     display: flex;
@@ -85,7 +157,7 @@ export default {
       justify-content: center;
       align-items: center;
       height: 100px;
-      margin: auto 50px;
+      margin: 50px;
       border: 1px solid #fff;
       border-radius: 5px;
       background: #fff;
@@ -97,7 +169,8 @@ export default {
   }
   .showWrap {
     width: 1520px;
-    margin: 100px auto;
+    margin-bottom: 50px;
+    margin-left: 50px;
     border: 1px solid #fff;
     border-radius: 5px;
     background: #fff;

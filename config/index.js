@@ -56,6 +56,13 @@ module.exports = {
         pathRewrite: {
           '^/weather': ''
         }
+      },
+      '/article': {
+        target: 'https://interface.meiriyiwen.com/article/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/article': ''
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
