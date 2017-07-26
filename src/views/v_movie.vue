@@ -3,27 +3,27 @@
     <table>
       <tr>
         <th>名称</th>
-        <!--<td v-for="movie in movieList">{{ movie.title }}</td>-->
+        <td v-for="movie in movieList">{{ movie.title }}</td>
       </tr>
-      <!--<tr>
+      <tr>
         <th>评分</th>
         <td v-for="movie in movieList">{{ movie.rating.average }}</td>
-      </tr>-->
+      </tr>
       <tr>
         <th>主演</th>
         <td v-for="movie in movieList">
-          <!--<p v-for="casts in movie.casts">{{ casts.name}}</p>-->
+          <p v-for="casts in movie.casts">{{ casts.name}}</p>
         </td>
       </tr>
       <tr>
         <th>类型</th>
         <td v-for="movie in movieList">
-          <!--<p v-for="type in movie.genres">{{ type }}</p>-->
+          <p v-for="type in movie.genres">{{ type }}</p>
         </td>
       </tr>
       <tr>
         <th>封面</th>
-        <!--<td v-for="movie in movieList"><img :src="movie.images.medium"></td>-->
+        <td v-for="movie in movieList"><img :src="movie.images.medium"></td>
       </tr>
     </table>
     <div class="paginationDiv">
