@@ -1,23 +1,17 @@
 <template>
   <div class="hello">
-    <h1 class='static' v-bind:class="{active: isActive, 'text-danger': hasError}">{{msg}}</h1>
-    <p :class='classObj'>{{time}}</p>
-    <p>{{good}}</p>
-    <el-button type="primary" v-on:click='change'>主要按钮</el-button>
-    <p>{{inputVal}}</p>
-    <div class='inputWrap'><el-input v-model="inputVal"></el-input></div>
-    <p>{{basic}}</p>
-    <p v-if="Math.random()>0.5">Yes</p>
-    <p v-else>No</p>
+    <p>{{time}}</p>
     <p>hello{{ $store.state.count }}</p>
     <el-button @click="increment">+1</el-button>
     <el-button @click="add">+10</el-button>
     <el-button @click="incrementAsync">异步+1</el-button>
     <el-button @click="incrementAsyncWithVal">异步+5</el-button>
+    <oh-on :toChild='pData' @changeP='pChange'></oh-on>
   </div>
 </template>
 
 <script>
+import oh_on from './ok'
 export default {
   name: 'hello',
   data () {
@@ -29,10 +23,14 @@ export default {
       basic: '',
       isActive: true,
       hasError: false,
-      error :false
+      error :false,
+      pData: 'haha'
     }
   },
   methods:{
+    pChange(val) {
+      this.pData = val
+    },
     BasicData(){
       this.$http('http://localhost:8080/static/data.json')
         .then((response)=>{
@@ -61,13 +59,8 @@ export default {
   mounted(){
     this.BasicData()
   },
-  computed:{
-    classObj(){
-      return {
-        active: this.isActive && !this.error,
-        'text-danger': this.error && this.error.type === 'fatal'
-      }
-    }
+  components:{
+    'oh-on':oh_on
   }
 }
 </script>

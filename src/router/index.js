@@ -13,12 +13,12 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/hello',
       name: 'IndexPage',
       component: IndexPage
     },
     {
-      path: '/hello',
+      path: '/',
       name: 'Hello',
       component: Hello
     },

@@ -14,7 +14,11 @@ Vue.prototype.$http = axios
 Vue.use(ElementUI)
 Vue.use(Vuex)
 Vue.use(AMap)
-
+//state里面就是存放项目中需要多组件共享的状态
+//mutations就是存放更改state里状态的方法
+//getters就是从state中派生出状态，比如将state中的某个状态进行过滤然后获取新的状态。
+//actions就是mutation的加强版，它可以通过commit mutations中的方法来改变状态，最重要的是它可以进行异步操作。
+//modules顾名思义，就是当用这个容器来装这些状态还是显得混乱的时候，我们就可以把容器分成几块，把状态和管理规则分类来装。这和我们创建js模块是一个目的，让代码结构更清晰。
 const store = new Vuex.Store({
   // 存储状态值
   state: {
