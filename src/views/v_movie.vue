@@ -10,8 +10,16 @@
         <td v-for="movie in movieList">{{ movie.rating.average }}</td>
       </tr>
       <tr>
+        <th>主演</th>
+        <td v-for="movie in movieList">
+          <p v-for="casts in movie.casts">{{ casts.name}}</p>
+        </td>
+      </tr>
+      <tr>
         <th>类型</th>
-        <td v-for="movie in movieList">{{ movie.genres }}</td>
+        <td v-for="movie in movieList">
+          <p v-for="type in movie.genres">{{ type }}</p>
+        </td>
       </tr>
       <tr>
         <th>封面</th>
@@ -33,28 +41,32 @@
     name: '',
     data() {
       return {
-        movieList:[]
+        movieList:[],
+        movieTitle: [],
+        currentPage: 1,
       }
     },
     methods: {
-      getMovieTop250(start) {
+      getMovieComing() {
         let _this = this;
-        this.$http.get('/api/movie/top250?count=10&start='+start)
+        this.$http.get('/api/movie/coming_soon?count=10&start='+_this.currentPage*10)
           .then(function (res) {
-            res.data.subjects.forEach(movie=>{
-              _this.movieList.push(movie);
-            })
+//            res.data.subjects.forEach(movie=>{
+//              _this.movieList.push(movie);
+//            })
+            _this.movieList = res.data.subjects;
           })
           .catch(function(error){
             console.log(error)
           })
       },
       handleCurrentChange(val) {
-        this.getMovieTop250(val*10);
+        this.currentPage = val;
+        this.getMovieComing(this.currentPage*10);
       }
     },
     mounted() {
-      this.getMovieTop250(10);
+      this.getMovieComing();
     }
   }
 </script>

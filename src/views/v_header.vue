@@ -13,6 +13,24 @@
         </el-submenu>
       </el-menu>
     </div>
+    <div class="weatherDiv">
+      <p>
+        <span>{{cityName}}--{{weather}}</span>
+        <span v-if="weather==='雷阵雨/多云'">
+           <svg class="icon"><use xlink:href="#icon-baofengyu"></use></svg>
+           <svg class="icon"><use xlink:href="#icon-duoyun"></use></svg>
+        </span>
+        <span v-if="weather==='雷阵雨/雷阵雨'">
+           <svg class="icon"><use xlink:href="#icon-baofengyu"></use></svg>
+        </span>
+        <span v-if="weather==='多云/多云'">
+           <svg class="icon"><use xlink:href="#icon-duoyun"></use></svg>
+        </span>
+        <span v-if="weather==='小雨/小雨'">
+           <svg class="icon"><use xlink:href="#icon-yu"></use></svg>
+        </span>
+      </p>
+    </div>
   </div>
 </template>
 <script>
@@ -20,8 +38,23 @@
     name: '',
     data () {
       return {
-        userName:'helloworld@123.com'
+        userName:'helloworld@123.com',
+        weather: '',
+        cityName: ''
       }
+    },
+    methods: {
+      getWeather() {
+        let _this  = this;
+        this.$http.get('/weather/all?city=CHGD070000')
+          .then(function(res){
+            _this.weather = res.data.weather[0].future[0].text;
+            _this.cityName = res.data.weather[0].city_name;
+          })
+      }
+    },
+    mounted() {
+      this.getWeather();
     }
   }
 </script>
@@ -44,7 +77,7 @@
     background-color: #324157;
     .el-menu {
       position: absolute;
-      right: 50px;
+      right: 220px;
     }
   }
   .logo {
@@ -62,6 +95,14 @@
   .center {
     position: absolute;
     right: 100px;
+  }
+  .weatherDiv {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 14px;
+    color: #bfcbd9;
   }
 
 </style>

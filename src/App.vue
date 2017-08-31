@@ -13,7 +13,6 @@
     <!--</div>-->
     <v_header></v_header>
     <v_nav></v_nav>
-    <v_weather></v_weather>
     <div class="contentDiv">
       <router-view></router-view>
       <!--<v_footer></v_footer>-->
@@ -22,13 +21,11 @@
 </template>
 
 <script>
-  import v_weather from './views/v_weather'
   import v_header from './views/v_header'
   import v_nav from './views/v_nav'
   export default {
     name: 'app',
     components:{
-      'v_weather':v_weather,
       'v_header':v_header,
       'v_nav':v_nav
     },
@@ -69,8 +66,14 @@
   .contentDiv {
     position: absolute;
     left: 200px;
-    top: 100px;
+    top: 50px;
     padding: 50px;
     overflow: auto;
+  }
+  .icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
   }
 </style>

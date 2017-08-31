@@ -26,9 +26,10 @@
         let _this = this;
         this.$http.get('/pic/10/'+page)
           .then(function(res){
-            res.data.results.forEach(pic=>{
-              _this.picList.push(pic)
-            })
+//            res.data.results.forEach(pic=>{
+//              _this.picList.push(pic)
+//            })
+              _this.picList = res.data.results;
           })
           .catch(function(error){
             console.log(error)
