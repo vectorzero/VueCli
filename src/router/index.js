@@ -7,6 +7,7 @@ import Login from '@/components/Login'
 import Vux from '@/components/Vux'
 import DataTable from '@/components/DataTable'
 import UserManage from '@/components/UserManage'
+import Form from '@/components/Form'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/usermanage',
       name: 'UserManage',
       component: UserManage
+    },
+    {
+      path: '/form',
+      name: 'Form',
+      component: Form
     }
   ]
 })
